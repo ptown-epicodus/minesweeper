@@ -1,0 +1,5 @@
+<div *ngFor="let row of gameBoard.grid" class="row">
+  <div *ngFor="let cell of row" class="col-md-1">
+    <p>{{cell.bomb}}</p>
+  </div>
+</div>
