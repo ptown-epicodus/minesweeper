@@ -21,6 +21,8 @@ export class BoardDisplayComponent implements OnInit {
     this.gameBoard.exposeCellAt(x, y);
     if (this.gameBoard.cellAt(x, y).bomb) {
       alert('You lose!');
+    } else if (this.gameBoard.completed()) {
+      alert('You win!');
     }
   }
 

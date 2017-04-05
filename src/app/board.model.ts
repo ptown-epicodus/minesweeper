@@ -56,6 +56,14 @@ export class Board {
     this.cellAt(x, y).exposed = true;
   }
 
+  completed() {
+    return this.grid.every(function(row) {
+      return row.every(function(cell) {
+        return cell.exposed || cell.bomb;
+      });
+    });
+  }
+
   debug() {
     let debugString: string = '';
     this.grid.forEach(function(row) {
