@@ -1,0 +1,24 @@
+.board-cell {
+  border: solid black 2px;
+}
+
+.board-cell {
+  height: 30px;
+  width: 30px;
+}
+
+.cell-covered {
+  background-color: gray;
+}
+
+.cell-data p {
+  text-align: center;
+}
+
+.cell-covered .cell-data {
+  display: none;
+}
+
+.cell-revealed .cell-data {
+  display: block;
+}

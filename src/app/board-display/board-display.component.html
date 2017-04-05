@@ -1,5 +1,10 @@
-<div *ngFor="let row of gameBoard.grid" class="row">
-  <div *ngFor="let cell of row" class="col-md-1">
-    <p>{{cell.bomb}}</p>
-  </div>
-</div>
+<table class="game-board">
+
+<tr *ngFor="let row of gameBoard.grid; let rowIndex=index" class="row">
+  <td *ngFor="let cell of row; let columnIndex=index" class="board-cell {{cell.exposed ? 'cell-revealed' : 'cell-covered'}}" (click)="revealCellAt(columnIndex, rowIndex)">
+    <div class="cell-data">
+      <p *ngIf="cell.bomb">B</p>
+      <p *ngIf="! cell.bomb">{{gameBoard.adjacentBombsTo(columnIndex, rowIndex)}}</p>
+    </div>
+  </td>
+</tr>

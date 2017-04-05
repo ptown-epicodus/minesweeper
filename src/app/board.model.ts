@@ -52,6 +52,10 @@ export class Board {
     return numberOfBombs;
   }
 
+  exposeCellAt(x: number, y: number) {
+    this.cellAt(x, y).exposed = true;
+  }
+
   debug() {
     let debugString: string = '';
     this.grid.forEach(function(row) {
