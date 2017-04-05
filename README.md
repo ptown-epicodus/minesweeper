@@ -1,6 +1,25 @@
 # Minesweeper
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+This minesweeper game was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
+Minesweeper is a single-player puzzle video game. The objective of the game is to clear a rectangular board containing hidden "mines" without detonating any of them, with help from clues about the number of neighboring mines in each field. The game originates from the 1960s, and has been written for many computing platforms in use today. It has many variations and offshoots.
+
+## Specs
+
+| Behavior | Input | Output |
+|----------|-------|--------|
+|User begins game by clicking a field in the grid| C4 | 2 |
+|User chooses a mined field and loses. | D2 | "you lose"|
+|User chooses only clear fields and wins | A1 | "you win"|
+|User restarts the game | "restart" | fresh start! |
+
+# To-Do
+* When revealed, cells with no bomb-neighbors recursively reveal their neighbors
+* Total bomb countdown
+* Stopwatch for gameplay
+* Right-clicking on revealed cell that has correct # of neighbors marked reveals rest of neighbors
+* Bomb-neighbor count in cells is color-coded
+* Game board is setup with form for width, height, difficulty
+
 
 ## Development server
 
