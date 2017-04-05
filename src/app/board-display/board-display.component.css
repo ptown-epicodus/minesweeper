@@ -11,6 +11,10 @@
   background-color: gray;
 }
 
+.cell-marked {
+  background-color: red;
+}
+
 .cell-data p {
   text-align: center;
 }

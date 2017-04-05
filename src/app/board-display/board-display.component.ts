@@ -17,13 +17,21 @@ export class BoardDisplayComponent implements OnInit {
     this.gameBoard = new Board(5, 5, 50);
   }
 
-  revealCellAt(x: number, y: number) {
+  clickedCellAt(x: number, y: number) {
     this.gameBoard.exposeCellAt(x, y);
     if (this.gameBoard.cellAt(x, y).bomb) {
       alert('You lose!');
     } else if (this.gameBoard.completed()) {
       alert('You win!');
     }
+  }
+
+  rightClickedCellAt(x: number, y: number) {
+    let cell: Cell = this.gameBoard.cellAt(x, y);
+    if (! cell.exposed) {
+      cell.marked = ! cell.marked; // toggle 'marked' status of cell
+    }
+    return false; // this prevents the default behavior (showing context menu)
   }
 
 }
