@@ -15,6 +15,7 @@ export class BoardDisplayComponent implements OnInit {
 
   ngOnInit() {
     this.gameBoard = new Board(5, 5, 50);
+    this.gameBoard.debugWithBombNumbers();
   }
 
   clickedCellAt(x: number, y: number) {
