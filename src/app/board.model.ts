@@ -34,6 +34,22 @@ export class Board {
 
   adjacentBombsTo(x: number, y: number) {
     let numberOfBombs: number = 0;
+
+    this.neighborsAt(x,y).forEach(function(cell) {
+      if (cell.bomb)
+        numberOfBombs++;
+    });
+
+    return numberOfBombs;
+  }
+
+  exposeCellAt(x: number, y: number) {
+    this.cellAt(x, y).exposed = true;
+  }
+
+  neighborsAt(x: number, y: number) {
+    let neighbors: Cell[] = [];
+
     let beginningX = Math.max(x - 1, 0);
     let beginningY = Math.max(y - 1, 0);
     let endX = Math.min(x + 1, this.width - 1);
@@ -43,17 +59,28 @@ export class Board {
       for (let j = beginningY; j <= endY; j++) {
         if (i == x && j == y)
           continue;
-        if (this.cellAt(i,j).bomb) {
-          numberOfBombs++;
-        }
+        neighbors.push(this.cellAt(i,j));
       }
     }
 
-    return numberOfBombs;
+    return neighbors;
   }
 
-  exposeCellAt(x: number, y: number) {
-    this.cellAt(x, y).exposed = true;
+  revealNeighborsAt(x: number, y: number) {
+    let unmarkedNeighbors: Cell[] =
+      this.neighborsAt(x,y).filter(function(cell) {
+        return ! cell.marked;
+      });
+    let markedNeighbors: Cell[] =
+      this.neighborsAt(x,y).filter(function(cell) {
+        return cell.marked;
+      });
+
+    if (this.adjacentBombsTo(x,y) == markedNeighbors.length) {
+      unmarkedNeighbors.forEach(function(cell) {
+        cell.exposed = true;
+      });
+    }
   }
 
   completed() {

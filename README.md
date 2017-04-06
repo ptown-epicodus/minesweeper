@@ -16,7 +16,6 @@ Minesweeper is a single-player puzzle video game. The objective of the game is t
 * When revealed, cells with no bomb-neighbors recursively reveal their neighbors
 * Total bomb countdown
 * Stopwatch for gameplay
-* Right-clicking on revealed cell that has correct # of neighbors marked reveals rest of neighbors
 * Bomb-neighbor count in cells is color-coded
 * Game board is setup with form for width, height, difficulty
 

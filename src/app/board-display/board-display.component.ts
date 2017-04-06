@@ -31,6 +31,8 @@ export class BoardDisplayComponent implements OnInit {
     let cell: Cell = this.gameBoard.cellAt(x, y);
     if (! cell.exposed) {
       cell.marked = ! cell.marked; // toggle 'marked' status of cell
+    } else {
+      this.gameBoard.revealNeighborsAt(x, y);
     }
     return false; // this prevents the default behavior (showing context menu)
   }
